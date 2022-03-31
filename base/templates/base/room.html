@@ -2,4 +2,22 @@
 
 {% block content %}
 <h1>Room {{ room.name }}</h1>
+<h3>Host: {{ room.host.first_name }} {{ room.host.last_name }}</h3>
+<h3>Topic: {{ room.topic.name }}</h3>
+
+<br>
+
+{% for message in messages %}
+    <ul>
+        <li>
+            <h4>Posted by: {{ message.user.first_name }} {{ message.user.last_name }}</h4>
+            <h4>Message: {{ message.body }}</h4>
+            <h4>Written: {{ message.created }}</h4>
+            <h4>Edited: {{ message.updated }}</h4>
+        </li>
+    </ul>
+
+    <hr>
+{% endfor %}
+
 {% endblock content %}

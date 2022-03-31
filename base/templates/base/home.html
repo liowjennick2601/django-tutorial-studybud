@@ -2,14 +2,23 @@
 
 {% block content %}
 <h1>Home Template</h1>
+<a href="/create-room">
+    <h2>Create New Room</h2>
+</a>
+
+<br>
 
 <div>
     {% for room in rooms %}
         <div>
             <a href="/room/{{ room.id }}">
-                <h5>{{ room.id }} -- {{ room.name }}</h5>
+                <h2>Host: {{ room.host.first_name }} {{ room.host.last_name }}</h2>
+                <h2>{{ room.id }} -- {{ room.name }}</h2>
+                <h2>Title: {{ room.topic }}</h2>
             </a>
         </div>
+
+        <hr>
     {% endfor %}
 </div>
 {% endblock content %}
