@@ -11,10 +11,18 @@
 <div>
     {% for room in rooms %}
         <div>
-            <a href="/room/{{ room.id }}">
+            <a href="{% url 'room' room.id %}">
                 <h2>Host: {{ room.host.first_name }} {{ room.host.last_name }}</h2>
                 <h2>{{ room.id }} -- {{ room.name }}</h2>
                 <h2>Title: {{ room.topic }}</h2>
+            </a>
+
+            <a href="{% url 'update-room' room.id %}">
+                Edit
+            </a>
+
+            <a href="{% url 'delete-room' room.id %}">
+                Delete
             </a>
         </div>
 
